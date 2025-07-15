@@ -7,7 +7,7 @@ import vmware.services.organization.model.Employee;
 
 import java.util.List;
 
-@FeignClient(name = "employee")
+@FeignClient(name = "employee", url = "http://k-worker1.cn:30018")
 public interface EmployeeClient {
 
 	@GetMapping("/organization/{organizationId}")

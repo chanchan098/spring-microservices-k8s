@@ -1,4 +1,8 @@
 spring:
+  data:
+    mongodb:
+      uri: "mongodb://mongo-admin:mongo-admin-password@k-worker1.cn:30017"
+      database: admin
   application:
     name: organization
   cloud:

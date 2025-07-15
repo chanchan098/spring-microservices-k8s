@@ -19,6 +19,9 @@ spec:
         image: jojoey007/sb-cloud-tutorial-organization:latest
         ports:
           - containerPort: 8080
+        env:
+          - name: JAVA_TOOL_OPTIONS
+            value: "-Xmx256m -Xms128m -XX:+UseSerialGC"
         resources:
           requests:
             cpu: "0.2"
