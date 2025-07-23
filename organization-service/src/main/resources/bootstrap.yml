@@ -1,16 +1,27 @@
 spring:
-  data:
-    mongodb:
-      uri: "mongodb://mongo-admin:mongo-admin-password@k-worker1.cn:30017"
-      database: admin
   application:
     name: organization
+#  profiles:
+#    active: dev
   cloud:
     kubernetes:
+      reload:
+        enabled: true
+        monitoring-config-maps: true
+        mode: event
+
       config:
         enableApi: true
         paths:
           - /vault/secrets/mongodb.properties
+        enabled:  true
+        name: default-config
+        namespace: organization
+        sources:
+          - name: organization-config
+          - name: organization
+
+
       #        # default is true
       #        enabled: true
       #        # load from path
@@ -32,3 +43,14 @@ spring:
           - /etc/secretspot
         # default is false
         enableApi: false
+        sources:
+          - name: organization
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

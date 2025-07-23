@@ -1,0 +1,13 @@
+feign:
+  client:
+    config:
+      employee:
+        url: http://k-worker1.cn:30018
+      department:
+        url: http://k-worker1.cn:30019
+
+
+#spring:
+#  data:
+#    mongodb:
+#      uri: "mongodb://mongo-admin:mongo-admin-password@k-worker1.cn:30017/admin"

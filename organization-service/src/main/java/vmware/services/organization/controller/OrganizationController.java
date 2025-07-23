@@ -4,11 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import vmware.services.organization.AppProperties;
 import vmware.services.organization.client.DepartmentClient;
 import vmware.services.organization.client.EmployeeClient;
 import vmware.services.organization.model.Organization;
 import vmware.services.organization.repository.OrganizationRepository;
 
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -22,7 +24,10 @@ public class OrganizationController {
     DepartmentClient departmentClient;
 	@Autowired
 	EmployeeClient employeeClient;
-	
+	@Autowired
+	AppProperties appProperties;
+
+
 	@PostMapping
 	public Organization add(@RequestBody Organization organization) {
 		LOGGER.info("Organization add: {}", organization);
@@ -79,5 +84,10 @@ public class OrganizationController {
 			return null;
 		}
 	}
-	
+
+	@GetMapping("/config")
+	public Map<Object, Object> config() {
+		return appProperties.toJson();
+	}
+
 }

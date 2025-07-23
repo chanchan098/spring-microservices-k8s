@@ -7,7 +7,7 @@ import vmware.services.organization.model.Department;
 
 import java.util.List;
 
-@FeignClient(name = "department", url = "http://k-worker1.cn:30019")
+@FeignClient(name = "department"/*, url = "${feign.client.config.department.url}"*/)
 public interface DepartmentClient {
 
 	@GetMapping("/organization/{organizationId}")

@@ -1,0 +1,11 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: organization-config
+  labels:
+    spring.cloud.kubernetes.config: "true"
+  annotations:
+    spring.cloud.kubernetes.configmap.apps: "organization"
+data:
+  feign.client.config.employee.url: http://k-worker1.cn:30018
+  feign.client.config.department.url: http://k-worker1.cn:30019

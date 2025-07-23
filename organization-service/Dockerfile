@@ -3,7 +3,10 @@ ARG JDK_VERSION=11
 
 FROM maven:${MVN_VERSION}-jdk-${JDK_VERSION}-slim as build
 
+COPY .m2 /root/.m2
+
 WORKDIR /build
+
 COPY pom.xml .
 # create a layer with all of the Manven dependencies, first time it takes a while consequent call are very fast
 # RUN mvn dependency:go-offline

@@ -22,26 +22,26 @@ kubectl create clusterrolebinding service-pod-reader-organization --clusterrole=
 kubectl create clusterrolebinding service-pod-reader-mongo --clusterrole=microservices-kubernetes-namespace-reader --serviceaccount=mongo:api-service-account        
 
 
-$apf ../k8s/mongodb-deployment.yaml -n mongo
-$apf ../k8s/mongodb-configmap.yaml -n mongo
-$apf ../k8s/mongodb-secret.yaml -n mongo
+kubectl apply -f  ../k8s/mongodb-deployment.yaml -n mongo
+kubectl apply -f  ../k8s/mongodb-configmap.yaml -n mongo
+kubectl apply -f  ../k8s/mongodb-secret.yaml -n mongo
 
-$apf ../k8s/department-configmap.yaml -n department
-$apf ../k8s/department-secret.yaml -n department
-$apf ../k8s/department-deployment.yaml -n department
+kubectl apply -f  ../k8s/department-configmap.yaml -n department
+kubectl apply -f  ../k8s/department-secret.yaml -n department
+kubectl apply -f  ../k8s/department-deployment.yaml -n department
 
 
-$apf ../k8s/gateway-configmap.yaml -n gateway
+kubectl apply -f  ../k8s/gateway-configmap.yaml -n gateway
 kubectl apply -f ../k8s/gateway-deployment.yaml -n gateway
 
 
-$apf ../k8s/employee-configmap.yaml -n employee
-$apf ../k8s/employee-secret.yaml -n employee
-$apf ../k8s/employee-deployment.yaml -n employee
+kubectl apply -f  ../k8s/employee-configmap.yaml -n employee
+kubectl apply -f  ../k8s/employee-secret.yaml -n employee
+kubectl apply -f  ../k8s/employee-deployment.yaml -n employee
 
 
-$apf ../k8s/organization-configmap.yaml -n organization
-$apf ../k8s/organization-secret.yaml -n organization
-$apf ../k8s/organization-deployment.yaml -n organization
+kubectl apply -f  ../k8s/organization-configmap.yaml -n organization
+kubectl apply -f  ../k8s/organization-secret.yaml -n organization
+kubectl apply -f  ../k8s/organization-deployment.yaml -n organization
 
 kubectl apply -f ../k8s/ingress.yaml
