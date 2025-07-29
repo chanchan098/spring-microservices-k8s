@@ -1,8 +1,8 @@
 spring:
   application:
     name: organization
-#  profiles:
-#    active: dev
+  profiles:
+    active: dev
   cloud:
     kubernetes:
       reload:
@@ -17,9 +17,10 @@ spring:
         enabled:  true
         name: default-config
         namespace: organization
-        sources:
-          - name: organization-config
-          - name: organization
+#        comment when dev
+#        sources:
+#          - name: organization-config
+#          - name: organization
 
 
       #        # default is true
@@ -43,8 +44,9 @@ spring:
           - /etc/secretspot
         # default is false
         enableApi: false
-        sources:
-          - name: organization
+#        comment when dev
+#        sources:
+#          - name: organization
 
 management:
   endpoints:
